@@ -1,9 +1,6 @@
 package com.maxpri.light_test_task.model.controller;
 
-import com.maxpri.light_test_task.model.dto.LoginRequest;
-import com.maxpri.light_test_task.model.dto.MessageResponse;
-import com.maxpri.light_test_task.model.dto.RegisterRequest;
-import com.maxpri.light_test_task.model.dto.UserInfoResponse;
+import com.maxpri.light_test_task.model.dto.*;
 import com.maxpri.light_test_task.model.service.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -25,7 +22,6 @@ public class AuthenticationController {
         this.authenticationService = authenticationService;
     }
 
-
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
         UserInfoResponse result = authenticationService.loginUser(loginRequest);
@@ -34,9 +30,16 @@ public class AuthenticationController {
                 .body(result);
     }
 
-    @PostMapping("/signup")
-    public ResponseEntity<MessageResponse> singUp(@RequestBody RegisterRequest registerRequest) {
-        MessageResponse result = authenticationService.signUpUser(registerRequest);
+    @PostMapping("/signup-admin")
+    public ResponseEntity<MessageResponse> singUpAdmin(@RequestBody AdminRegisterRequest adminRegisterRequest) {
+        MessageResponse result = authenticationService.signUpAdmin(adminRegisterRequest);
+
+        return ResponseEntity.ok(result);
+    }
+
+    @PostMapping("/signup-participant")
+    public ResponseEntity<MessageResponse> singUpParticipant(@RequestBody ParticipantRegisterRequest participantRegisterRequest) {
+        MessageResponse result = authenticationService.signUpParticipant(participantRegisterRequest);
 
         return ResponseEntity.ok(result);
     }

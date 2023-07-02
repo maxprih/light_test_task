@@ -28,8 +28,8 @@ public class Admin {
     @Column(nullable = false)
     private String inn;
 
-    @OneToMany(mappedBy = "admin")
-    private List<Contract> contracts;
+    @OneToOne(mappedBy = "admin", cascade = CascadeType.ALL, optional = false)
+    private Contract contract;
 
     @OneToMany(mappedBy = "admin")
     private List<Event> events;
