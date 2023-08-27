@@ -10,4 +10,5 @@ import java.util.Optional;
  */
 public interface ParticipantRepository extends JpaRepository<Participant, Long> {
     Optional<Participant> findParticipantById(Long id);
+    Boolean existsByAge(Integer age);
 }
