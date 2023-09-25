@@ -8,6 +8,7 @@ import java.util.Optional;
 /**
  * @author max_pri
  */
+//123
 public interface ParticipantRepository extends JpaRepository<Participant, Long> {
     Optional<Participant> findParticipantById(Long id);
     Boolean existsByAge(Integer age);
