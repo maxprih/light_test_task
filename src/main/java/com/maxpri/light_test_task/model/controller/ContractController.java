@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 /**
  * @author max_pri
  */
+// big bebra
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/contract")
