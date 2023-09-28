@@ -30,6 +30,7 @@ import java.util.stream.Collectors;
 /**
  * @author max_pri
  */
+//bebra service
 @Service
 public class AuthenticationService {
     private final UserRepository userRepository;
